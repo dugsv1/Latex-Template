@@ -1,0 +1,111 @@
+\documentclass[12pt,letterpaper]{report}
+
+\usepackage{graphicx}     
+\usepackage{amsmath}      % For math
+\usepackage{hyperref}     % For hyperlinks
+\usepackage{geometry}     % For page layout
+\usepackage{float}        % For 'Here' command for figures and tables
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[numbers]{natbib}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage[normalem]{ulem}% For strikethrough
+\usepackage[symbol]{footmisc} % For footnotes with symbols
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{booktabs}      % For professional table formatting
+\usepackage{capt-of}
+\usepackage{draftwatermark}
+\pagestyle{fancy}
+
+\SetWatermarkText{Draft Not for Distribution} % Define the watermark text
+\SetWatermarkScale{1.5} % Adjust the size of the watermark
+\SetWatermarkAngle{45} % Set the angle of the watermark
+\SetWatermarkColor[gray]{0.8} % Optional: Set the color of the watermark
+
+
+
+\geometry{margin=1in}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter.}
+  {0.5em}
+  {\Huge}
+\titlespacing*{\chapter}{0pt}{15pt}{30pt}  % Adjust the second value to reduce the space before the chapter title
+
+\postdate{\par\vspace{1cm}\placesecondlogo\end{center}}
+
+\newcommand{\secondlogo}[2][]{%
+  \renewcommand\placesecondlogo{%
+    \includegraphics[#1]{#2}\par\medskip
+  }%
+}
+\newcommand{\placesecondlogo}{} 
+
+\author{Sven Dugojevic, Carl Niedner}
+\date{\today}
+\vspace{3cm}
+
+% Clear all header and footer styles
+\fancypagestyle{plain}{
+  \fancyhf{} % Clears header and footer
+  \fancyfoot[R]{\thepage} % Page number on the right
+}
+
+% Set the default page style
+\pagestyle{fancy}
+\fancyhf{} % Clears header and footer
+\fancyhead[L]{\includegraphics[height=.6cm]{chapters/graphics/Levrum Logo.png}}
+\fancyfoot[R]{\thepage} % Page number on the right
+\fancyfoot[L]{CLT\_2401 Project Final Report\\
+Copyright © 2024, Levum, Inc. and City of Charlotte, NC,\\
+Proprietary and Confidential}
+
+% Adjust top margin to fit header content
+\setlength{\headheight}{21.42186pt}
+\addtolength{\topmargin}{-9.42186pt}
+
+% Ensure chapter pages follow the same style
+\makeatletter
+\let\ps@plain\ps@fancy
+\makeatother
+
+% Footnote symbols:
+% 1   asterisk        *   
+% 2   dagger          †   
+% 3   double dagger   ‡
+% 4   section symbol  §   
+% 5   paragraph       ¶   
+% 6   parallel lines  ‖
+% 7   two asterisks   **  
+% 8   two daggers     ††  
+% 9   two double daggers ‡‡
+% 0   no symbol
+
+\begin{document}
+
+\input{titlepage.tex}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\input{chapters/executive_summary}
+\input{chapters/methodology}
+\input{chapters/findings_conclusions}
+\input{chapters/appendix}
+
+\end{document}
